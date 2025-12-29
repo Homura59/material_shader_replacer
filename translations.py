@@ -1,0 +1,120 @@
+"""翻译字典"""
+
+import bpy
+
+translations_dict = {
+    "zh_CN": {
+        # 操作符
+        ("Operator", "Batch Replace Shader"): "批量替换着色器",
+        ("Operator", "Add Rule"): "添加规则",
+        ("Operator", "Remove Rule"): "移除规则",
+        ("Operator", "Disconnect All"): "断开所有连接",
+        ("Operator", "Reconnect with Rules"): "重新连接",
+        
+        # 面板
+        ("*", "Material Shader Replacer"): "材质着色器替换器",
+        ("Panel", "Material Shader Replacer"): "材质着色器替换器",
+        
+        # 属性名称（不带冒号）
+        ("*", "Manual Input"): "手动输入",
+        ("Property", "Manual Input"): "手动输入",
+        ("*", "Shader Name"): "着色器名称",
+        ("Property", "Shader Name"): "着色器名称",
+        ("*", "Select Shader"): "选择着色器",
+        ("Property", "Select Shader"): "选择着色器",
+        ("*", "Replace Mode"): "替换模式",
+        ("Property", "Replace Mode"): "替换模式",
+        ("*", "Specific Shader"): "指定着色器",
+        ("Property", "Specific Shader"): "指定着色器",
+        ("*", "Auto Connect"): "自动连接",
+        ("Property", "Auto Connect"): "自动连接",
+        ("*", "Advanced Options"): "高级选项",
+        ("Property", "Advanced Options"): "高级选项",
+        ("*", "Target Type"): "目标类型",
+        ("Property", "Target Type"): "目标类型",
+        ("*", "Source Match Mode"): "源匹配模式",
+        ("Property", "Source Match Mode"): "源匹配模式",
+        ("*", "Source Node Label"): "源节点标签",
+        ("Property", "Source Node Label"): "源节点标签",
+        ("*", "Source Node Type"): "源节点类型",
+        ("Property", "Source Node Type"): "源节点类型",
+        ("*", "Source Node Type Text"): "源节点类型文本",
+        ("Property", "Source Node Type Text"): "源节点类型文本",
+        ("*", "Source Socket Index"): "源接口索引",
+        ("Property", "Source Socket Index"): "源接口索引",
+        ("*", "Target Match Mode"): "目标匹配模式",
+        ("Property", "Target Match Mode"): "目标匹配模式",
+        ("*", "Target Node Label"): "目标节点标签",
+        ("Property", "Target Node Label"): "目标节点标签",
+        ("*", "Target Node Type"): "目标节点类型",
+        ("Property", "Target Node Type"): "目标节点类型",
+        ("*", "Target Node Type Text"): "目标节点类型文本",
+        ("Property", "Target Node Type Text"): "目标节点类型文本",
+        ("*", "Target Socket Index"): "目标接口索引",
+        ("Property", "Target Socket Index"): "目标接口索引",
+        
+        # EnumProperty 选项
+        ("*", "Selected Objects"): "选中的物体",
+        ("*", "Replace in selected objects"): "替换选中物体中的着色器",
+        ("*", "Active Collection"): "活动集合",
+        ("*", "Replace in active collection"): "替换活动集合中的着色器",
+        ("*", "Replace All Shaders"): "替换所有着色器",
+        ("*", "Replace all shader nodes"): "替换所有着色器节点",
+        ("*", "Replace Specific Shader"): "替换指定着色器",
+        ("*", "Replace specific shader only"): "仅替换指定的着色器",
+        ("*", "By Label/Name"): "按标签/名称",
+        ("*", "Match by node label or name"): "通过节点标签或名称匹配",
+        ("*", "By Node Type"): "按节点类型",
+        ("*", "Match by node type"): "通过节点类型匹配",
+        
+        # UI 标签（带冒号）
+        ("*", "Target Shader:"): "目标着色器：",
+        ("Panel", "Target Shader:"): "目标着色器：",
+        ("*", "Target:"): "目标：",
+        ("Panel", "Target:"): "目标：",
+        ("*", "Replace Mode:"): "替换模式：",
+        ("Panel", "Replace Mode:"): "替换模式：",
+        ("*", "Specific Shader:"): "指定着色器：",
+        ("Panel", "Specific Shader:"): "指定着色器：",
+        ("*", "Advanced Connection:"): "高级连接：",
+        ("Panel", "Advanced Connection:"): "高级连接：",
+        ("*", "Custom Connection Rules:"): "自定义连接规则：",
+        ("Panel", "Custom Connection Rules:"): "自定义连接规则：",
+        ("*", "Rule"): "规则",
+        ("Panel", "Rule"): "规则",
+        ("*", "Settings:"): "设置：",
+        ("Panel", "Settings:"): "设置：",
+        ("*", "Source Node (Output):"): "源节点（输出）：",
+        ("Panel", "Source Node (Output):"): "源节点（输出）：",
+        ("*", "Target Node (Input):"): "目标节点（输入）：",
+        ("Panel", "Target Node (Input):"): "目标节点（输入）：",
+        ("*", "Match Mode"): "匹配模式",
+        ("Panel", "Match Mode"): "匹配模式",
+        ("*", "Label/Name"): "标签/名称",
+        ("Panel", "Label/Name"): "标签/名称",
+        ("*", "Socket Index"): "接口索引",
+        ("Panel", "Socket Index"): "接口索引",
+        
+        # 节点类型
+        ("*", "Principled BSDF"): "原理化BSDF",
+        ("*", "Diffuse BSDF"): "漫反射BSDF",
+        ("*", "Glossy BSDF"): "光泽BSDF",
+        ("*", "Transparent BSDF"): "透明BSDF",
+        ("*", "Glass BSDF"): "玻璃BSDF",
+        ("*", "Emission"): "自发光",
+        ("*", "Subsurface Scattering"): "次表面散射",
+        ("*", "Mix Shader"): "混合着色器",
+        ("*", "Add Shader"): "添加着色器",
+        
+        # 其他
+        ("*", "Not set"): "未设置",
+        ("Panel", "Not set"): "未设置",
+        ("UIList", "Not set"): "未设置",
+        ("*", "-- No Shaders Available --"): "-- 无可用着色器 --",
+        ("*", "-- Select Node Type --"): "-- 选择节点类型 --",
+        
+        # Blender 4.5兼容性：添加更具体的上下文
+        ("*", "Rule Settings:"): "规则设置：",
+        ("Panel", "Rule {} Settings:"): "规则 {} 设置：",
+    }
+}
