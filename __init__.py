@@ -22,7 +22,7 @@ import bpy
 bl_info = {
     "name": "材质着色器批量替换工具",
     "author": "Homura59",
-    "version": (1, 3, 5),
+    "version": (1, 3, 6),
     "blender": (4, 3, 0),
     "location": "3D视图 > 侧边栏 > 材质替换工具",
     "description": "批量替换材质中的着色器，支持智能连接处理和高级连接规则",
@@ -76,7 +76,7 @@ def register():
     # 注册翻译
     bpy.app.translations.register(__name__, translations.translations_dict)
 
-    print("材质着色器批量替换插件 v1.3.5 注册完成")
+    print("材质着色器批量替换插件 v1.3.6 注册完成")
 
 
 def unregister():
