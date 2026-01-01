@@ -168,7 +168,9 @@ class MATERIAL_OT_disconnect_all_connections(Operator):
 
         disconnected_count = 0
 
-        self._clear_snapshot(props)
+        # 只有在启用连接关系记录时才清空快照
+        if props.enable_connection_recording:
+            self._clear_snapshot(props)
 
         for obj in selected_objects:
             if obj.type == 'MESH':
@@ -222,14 +224,16 @@ class MATERIAL_OT_disconnect_all_connections(Operator):
 
                         shader_type_str = ','.join(shader_types) if shader_types else 'ALL'
 
-                        for link in links_to_record:
-                            self._record_connection(
-                                props.connection_snapshot,
-                                link,
-                                mat.name,
-                                props.replace_mode,
-                                shader_type_str
-                            )
+                        # 只有在启用连接关系记录时才记录连接
+                        if props.enable_connection_recording:
+                            for link in links_to_record:
+                                self._record_connection(
+                                    props.connection_snapshot,
+                                    link,
+                                    mat.name,
+                                    props.replace_mode,
+                                    shader_type_str
+                                )
 
                         for link in links_to_remove:
                             links.remove(link)
@@ -391,7 +395,8 @@ class MATERIAL_OT_reconnect_with_rules(Operator):
                                         else:
                                             custom_rule_count += 1
 
-                        if has_snapshot:
+                        # 只有在启用连接关系记录时才恢复连接快照
+                        if has_snapshot and props.enable_connection_recording:
                             restored_count += self._restore_connections_from_snapshot(
                                 props, node_tree, mat.name)
 

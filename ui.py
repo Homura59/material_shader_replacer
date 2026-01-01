@@ -239,7 +239,13 @@ class MATERIAL_PT_shader_replacer_panel(Panel):
             row.label(text=f"已记录 {snapshot_count} 个连接关系", icon='INFO')
             row.operator("material.clear_connection_snapshot", text="清空快照", icon='TRASH')
         else:
-            advanced_box.label(text="暂无连接关系记录", icon='INFO')
+            row = advanced_box.row(align=True)
+            row.label(text="暂无连接关系记录", icon='INFO')
+        
+        # 连接关系记录启用/禁用开关（动态文本）
+        row = advanced_box.row(align=True)
+        record_text = "禁用连接关系记录" if props.enable_connection_recording else "启用连接关系记录"
+        row.prop(props, "enable_connection_recording", text=record_text)
 
         # 连接规则说明
         advanced_box.label(text="自定义连接规则:")
@@ -391,7 +397,13 @@ class MATERIAL_PT_shader_replacer_material(Panel):
             row.label(text=f"已记录 {snapshot_count} 个连接关系", icon='INFO')
             row.operator("material.clear_connection_snapshot", text="清空快照", icon='TRASH')
         else:
-            advanced_box.label(text="暂无连接关系记录", icon='INFO')
+            row = advanced_box.row(align=True)
+            row.label(text="暂无连接关系记录", icon='INFO')
+        
+        # 连接关系记录启用/禁用开关（动态文本）
+        row = advanced_box.row(align=True)
+        record_text = "禁用连接关系记录" if props.enable_connection_recording else "启用连接关系记录"
+        row.prop(props, "enable_connection_recording", text=record_text)
 
         # 连接规则说明
         advanced_box.label(text="自定义连接规则:")

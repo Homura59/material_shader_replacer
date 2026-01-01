@@ -401,6 +401,13 @@ class ShaderReplacerProperties(PropertyGroup):
         default=""
     )
 
+    # 连接关系记录功能启用状态
+    enable_connection_recording: BoolProperty(
+        name="启用连接关系记录",
+        description="启用或禁用连接关系记录功能",
+        default=True
+    )
+
 
 def register():
     bpy.utils.register_class(ConnectionRuleItem)
